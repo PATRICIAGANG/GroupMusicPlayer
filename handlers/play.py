@@ -136,12 +136,15 @@ async def play(_, message: Message):
             views = results[0]["views"]
             keyboard = InlineKeyboardMarkup(
                     [
-                        [
-                            InlineKeyboardButton(
-                                text="Watch On YouTube 🎬",
-                                url=f"{url}")
+                      [
+                        InlineKeyboardButton(
+                            text=" YouTube 🎬",
+                            url=f"{url}")
+                        InlineKeyboardButton(
+                            text="Download 📠",
+                            url=f"{durl}")
 
-                        ]
+                      ]
                     ]
                 )
         except Exception as e:
@@ -151,12 +154,15 @@ async def play(_, message: Message):
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
                     [
-                        [
-                            InlineKeyboardButton(
-                                text="Watch On YouTube 🎬",
-                                url=f"https://youtube.com")
+                      [
+                        InlineKeyboardButton(
+                            text=" YouTube 🎬",
+                            url=f"{url}")
+                        InlineKeyboardButton(
+                            text="Download 📠",
+                            url=f"{durl}")
 
-                        ]
+                      ]
                     ]
                 )
         requested_by = message.from_user.first_name
@@ -200,8 +206,11 @@ async def play(_, message: Message):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Watch On YouTube 🎬",
+                            text=" YouTube 🎬",
                             url=f"{url}")
+                        InlineKeyboardButton(
+                            text="Download 📠",
+                            url=f"{durl}")
 
                     ]
                 ]
@@ -223,7 +232,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {} via YouTube Music 😜".format(
+        caption="▶️ **Playing** here the song requested by {} ".format(
         message.from_user.mention()
         ),
     )
